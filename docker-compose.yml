@@ -1,0 +1,401 @@
+version: '2'
+services:
+  mongo:
+    image: "mongo:3.4"
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+  rabbit:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  storage:
+    image: "caohanyang/storage"
+    ports:
+      - "8086:8086"
+    depends_on:
+      - "mongo"
+  scheduler:
+    image: "caohanyang/scheduler"
+    ports:
+      - "8091:8091"
+    depends_on:
+      - "rabbit"
+      - "mongo"
+  player1:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"
+  player2:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"    
+  player3:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"   
+  player4:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"
+  player5:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"    
+  player6:
+    image: "caohanyang/player"
+    depends_on:
+      - "rabbit"
+      - "mongo"   
+  # player7:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player8:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player9:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player10:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player11:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player12:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player13:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player14:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player15:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player16:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player17:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player18:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player19:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player20:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player21:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player22:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player23:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player24:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player25:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player26:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player27:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player28:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player29:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player30:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player31:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player32:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player33:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player34:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player35:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player36:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player30:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player31:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player32:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player33:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player34:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player35:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player36:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
+  # player30:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player31:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player32:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player33:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player34:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player35:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player36:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
+  # player37:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player38:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player39:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player40:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player41:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player42:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player43:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
+  # player44:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player45:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player46:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player47:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player48:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player49:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player50:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
+  # player51:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player52:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player53:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player54:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player55:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player56:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player57:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
+  # player58:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player59:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player60:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player61:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"  
