@@ -2,10 +2,11 @@ version: '2'
 services:
   mongo:
     image: "mongo:3.4"
+    command: mongod --port 27018
     ports:
-      - "27017:27017"
+      - "27018:27018"
     expose:
-      - "27017"
+      - "27018"
   rabbit:
     image: "rabbitmq:3-management"
     ports:
