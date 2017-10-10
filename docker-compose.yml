@@ -13,31 +13,31 @@ services:
       - "5672:5672"
       - "15672:15672"
   storage:
-    build: https://github.com/webautotester/storage.git
-    image: "xblanc/wat_storage"
+    # build: https://github.com/webautotester/storage.git
+    image: "caohanyang/storage"
     ports:
       - "8085:8085"
     depends_on:
       - "mongo"
   scheduler:
-    build: https://github.com/webautotester/scheduler.git
-    image: "xblanc/wat_scheduler"
+    # build: https://github.com/webautotester/scheduler.git
+    image: "caohanyang/scheduler"
     ports:
       - "8090:8090"
     depends_on:
       - "rabbit"
       - "mongo"
   player1:
-    build: https://github.com/webautotester/player.git
-    image: "xblanc/wat_player"
+    # build: https://github.com/webautotester/player.git
+    image: "caohanyang/player"
     volumes:
       - screens:/tmp/run/screen
     depends_on:
       - "rabbit"
       - "mongo"
   player2:
-    build: https://github.com/webautotester/player.git
-    image: "xblanc/wat_player"
+    # build: https://github.com/webautotester/player.git
+    image: "caohanyang/player"
     volumes:
       - screens:/tmp/run/screen
     depends_on:
