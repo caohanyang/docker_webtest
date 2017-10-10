@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mongo:
     image: "mongo:3.4"
@@ -13,48 +13,64 @@ services:
       - "5672:5672"
       - "15672:15672"
   storage:
-    image: "caohanyang/storage"
+    build: https://github.com/webautotester/storage.git
+    image: "xblanc/wat_storage"
     ports:
-      - "8086:8086"
+      - "8085:8085"
     depends_on:
       - "mongo"
   scheduler:
-    image: "caohanyang/scheduler"
+    build: https://github.com/webautotester/scheduler.git
+    image: "xblanc/wat_scheduler"
     ports:
-      - "8091:8091"
+      - "8090:8090"
     depends_on:
       - "rabbit"
       - "mongo"
   player1:
-    image: "caohanyang/player"
+    build: https://github.com/webautotester/player.git
+    image: "xblanc/wat_player"
+    volumes:
+      - screens:/tmp/run/screen
     depends_on:
       - "rabbit"
       - "mongo"
   player2:
-    image: "caohanyang/player"
-    depends_on:
-      - "rabbit"
-      - "mongo"    
-  player3:
-    image: "caohanyang/player"
-    depends_on:
-      - "rabbit"
-      - "mongo"   
-  player4:
-    image: "caohanyang/player"
+    build: https://github.com/webautotester/player.git
+    image: "xblanc/wat_player"
+    volumes:
+      - screens:/tmp/run/screen
     depends_on:
       - "rabbit"
       - "mongo"
-  player5:
-    image: "caohanyang/player"
-    depends_on:
-      - "rabbit"
-      - "mongo"    
-  player6:
-    image: "caohanyang/player"
-    depends_on:
-      - "rabbit"
-      - "mongo"   
+
+volumes:
+  screens:
+  # player2:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player3:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
+  # player4:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"
+  # player5:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"    
+  # player6:
+  #   image: "caohanyang/player"
+  #   depends_on:
+  #     - "rabbit"
+  #     - "mongo"   
   # player7:
   #   image: "caohanyang/player"
   #   depends_on:
